@@ -12,6 +12,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
 		libasound2 \
 		x11-utils \
 		nodejs \
+		openbox \
+		scrot \
 		python3-pyqt5 python3-pip
 
 RUN python -m pip install --upgrade pip \
