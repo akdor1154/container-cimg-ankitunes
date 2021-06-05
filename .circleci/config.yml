@@ -40,7 +40,6 @@ jobs:
             git commit -m 'Autogen update'
             git push --force -u origin HEAD
 
-
 workflows:
   testAndRegister:
     jobs:
@@ -48,7 +47,7 @@ workflows:
           matrix:
             parameters:
               #python_docker_tag: ["3.8", "3.9"]
-              python_docker_tag: ["3.8", "3.9"]
+              python_docker_tag: ["3.6", "3.7", "3.8", "3.9"]
           filters:
             branches:
               only: master
