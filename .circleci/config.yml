@@ -16,7 +16,7 @@ jobs:
       python_docker_tag:
         type: string
     executor:
-      name: python_docker
+      name: sourcer
       python_docker_tag: << parameters.python_docker_tag >>
     steps:
       - checkout
