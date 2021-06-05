@@ -31,7 +31,7 @@ jobs:
 
       - run:
           name: Commit back to repo
-          command:
+          command: |
             git checkout -B << parameters.python_docker_tag >>
             git add Containerfile
             git commit -m 'Autogen update'
