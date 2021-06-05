@@ -12,6 +12,7 @@ RUN apt-get -y update \
 		libxkbcommon-x11-0 \
 		libasound2 \
 		x11-utils \
+		nodejs npm \
 		python3-pyqt5 python3-pip
 
 RUN python -m pip install --upgrade pip \
