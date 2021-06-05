@@ -17,7 +17,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - \
 		python3-pyqt5 python3-pip
 
 RUN python -m pip install --upgrade pip \
-	&& python -m pip install --upgrade poetry \
-	&& poetry config virtualenvs.in-project true
+	&& python -m pip install --upgrade poetry
 
 USER circleci
+
+RUN poetry config virtualenvs.in-project true
