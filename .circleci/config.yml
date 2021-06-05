@@ -1,0 +1,47 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+executors:
+  sourcer:
+    parameters:
+      python_docker_tag:
+        type: string
+    docker:
+      #- image: cimg/python:<< parameters.python_docker_tag >>
+      - image: cimg/base
+
+jobs:
+  generate:
+    parameters:
+      python_docker_tag:
+        type: string
+    executor:
+      name: python_docker
+      python_docker_tag: << parameters.python_docker_tag >>
+    steps:
+      - checkout
+
+      - run:
+          name: Generate Containerfile
+          command: ./gen.sh cimg/python:<< parameters.python_docker_tag >>
+
+      - run:
+          name: Commit back to repo
+          command:
+            git checkout -B << parameters.python_docker_tag >>
+            git add Containerfile
+            git commit -m 'Autogen update'
+            git push --force
+
+
+workflows:
+  testAndRegister:
+    jobs:
+      - generate:
+          matrix:
+            parameters:
+              #python_docker_tag: ["3.8", "3.9"]
+              python_docker_tag: ["3.8", "3.9"]
+          filters:
+            tags:
+              branches: master
