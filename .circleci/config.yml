@@ -25,6 +25,10 @@ jobs:
           name: Generate Containerfile
           command: ./gen.sh cimg/python:<< parameters.python_docker_tag >>
 
+      - add_ssh_keys:
+            fingerprints:
+              - "3e:f3:77:3c:26:7b:88:ae:a0:fb:de:61:d0:57:e6:00"
+
       - run:
           name: Commit back to repo
           command:
