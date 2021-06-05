@@ -43,4 +43,5 @@ workflows:
               #python_docker_tag: ["3.8", "3.9"]
               python_docker_tag: ["3.8", "3.9"]
           filters:
-            branches: master
+            branches:
+              only: master
