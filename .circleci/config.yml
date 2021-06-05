@@ -8,7 +8,7 @@ executors:
         type: string
     docker:
       #- image: cimg/python:<< parameters.python_docker_tag >>
-      - image: cimg/base:latest
+      - image: cimg/base:stable
 
 jobs:
   generate:
