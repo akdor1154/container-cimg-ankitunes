@@ -32,8 +32,8 @@ jobs:
       - run:
           name: Commit back to repo
           command: |
-            git config --user.email "akdor1154"
-            git config --user.name "akdor1154 via circleci"
+            git config user.email "akdor1154"
+            git config user.name "akdor1154 via circleci"
             git checkout -B << parameters.python_docker_tag >>
             git add Containerfile
             git commit -m 'Autogen update'
